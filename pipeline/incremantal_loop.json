@@ -44,7 +44,7 @@
 								"source": {
 									"type": "AzureSqlSource",
 									"sqlReaderQuery": {
-										"value": "SELECT * FROM @{item().schema}.@{item().table} WHERE @{item().cdc_col} > \n    '@{if(empty(item().from_date), activity('last_cdc').output.value[0].cdc, item().from_date)}'",
+										"value": "SELECT * FROM @{item().schema}.@{item().table} WHERE @{item().cdc_col} > '@{if(empty(item().from_date), activity('last_cdc').output.value[0].cdc, item().from_date)}'",
 										"type": "Expression"
 									},
 									"queryTimeout": "02:00:00",
@@ -225,10 +225,7 @@
 											"scripts": [
 												{
 													"type": "Query",
-													"text": {
-														"value": "SELECT MAx(@{item().cdc_col}) AS cdc FROM @{item().schema}.@{item().table}",
-														"type": "Expression"
-													}
+													"text": "SELECT MAX(@{item().cdc_col}) AS cdc FROM @{item().schema}.@{item().table}"
 												}
 											],
 											"scriptBlockExecutionTimeout": "02:00:00"

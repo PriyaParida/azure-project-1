@@ -81,11 +81,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"container": "bronze",
-										"table": {
-											"value": "@item().table",
+										"folder": {
+											"value": "@item().table}",
 											"type": "Expression"
 										},
-										"folder": {
+										"file": {
 											"value": "@{item().table}_cdc",
 											"type": "Expression"
 										}

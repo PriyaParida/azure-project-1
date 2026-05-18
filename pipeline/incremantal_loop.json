@@ -82,7 +82,7 @@
 									"parameters": {
 										"container": "bronze",
 										"folder": {
-											"value": "@{item().table}",
+											"value": "@item().table",
 											"type": "Expression"
 										},
 										"file": {

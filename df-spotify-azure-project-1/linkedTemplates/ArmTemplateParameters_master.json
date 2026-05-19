@@ -1,0 +1,33 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "df-spotify-azure-project-1"
+		},
+		"LS_ADLS_AzureProject_1_accountKey": {
+			"value": ""
+		},
+		"LS_AzureProject_1_password": {
+			"value": ""
+		},
+		"LS_ADLS_AzureProject_1_properties_typeProperties_url": {
+			"value": "https://priyaranjanazureproject1.dfs.core.windows.net/"
+		},
+		"LS_AzureProject_1_properties_typeProperties_server": {
+			"value": "priyaranjanprojectserver.database.windows.net"
+		},
+		"LS_AzureProject_1_properties_typeProperties_database": {
+			"value": "azureprojectdb"
+		},
+		"LS_AzureProject_1_properties_typeProperties_userName": {
+			"value": "priyaranjan"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

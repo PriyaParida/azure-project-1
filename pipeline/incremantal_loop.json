@@ -16,7 +16,7 @@
 					"activities": [
 						{
 							"name": "AzureSQL to ADLS",
-							"description": "We can Use----------------------------------------------------(only for Backfilling)\n\nSELECT * FROM @{pipeline().parameters.schema}.@{pipeline().parameters.table} WHERE @{if(empty(pipeline().parameters.from_date), concat(pipeline().parameters.cdc_col, '>','''',activity('last_cdc').output.value[0].cdc,''''), pipeline().parameters.from_date)}\n\nor\ncan use ----------------------------------------------------\n\nSELECT * FROM @{pipeline().parameters.schema}.@{pipeline().parameters.table} WHERE @{pipeline().parameters.cdc_col} > \n    '@{if(empty(pipeline().parameters.from_date), activity('last_cdc').output.value[0].cdc, pipeline().parameters.from_date)}'",
+							"description": "",
 							"type": "Copy",
 							"dependsOn": [
 								{
@@ -82,7 +82,7 @@
 									"parameters": {
 										"container": "bronze",
 										"folder": {
-											"value": "@item().table",
+											"value": "@{item().table}_cdc",
 											"type": "Expression"
 										},
 										"file": {
@@ -226,7 +226,7 @@
 												{
 													"type": "Query",
 													"text": {
-														"value": "SELECT MAX(@{item().cdc_col}) AS cdc FROM @{item().schema}.@{item().table}",
+														"value": "SELECT MAX(@{item().cdc_col}) AS cdc FROM @{item().table}",
 														"type": "Expression"
 													}
 												}
